@@ -1,4 +1,4 @@
-package com.s4r.account.dto;
+package com.s4r.card.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
