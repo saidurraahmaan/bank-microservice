@@ -3,7 +3,7 @@ package com.s4r.account.dto;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 
-public class AccountsDto {
+public class AccountDto {
 
     @NotEmpty(message = "AccountNumber can not be a null or empty")
     @Pattern(regexp = "(^$|[0-9]{10})", message = "AccountNumber must be 10 digits")
@@ -24,10 +24,10 @@ public class AccountsDto {
 //    )
     private String branchAddress;
 
-    public AccountsDto() {
+    public AccountDto() {
     }
 
-    public AccountsDto(Long accountNumber, String accountType, String branchAddress) {
+    public AccountDto(Long accountNumber, String accountType, String branchAddress) {
         this.accountNumber = accountNumber;
         this.accountType = accountType;
         this.branchAddress = branchAddress;
