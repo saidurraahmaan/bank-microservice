@@ -1,17 +1,17 @@
 package com.s4r.account.mapper;
 
-import com.s4r.account.dto.AccountsDto;
-import com.s4r.account.entity.Accounts;
+import com.s4r.account.dto.AccountDto;
+import com.s4r.account.entity.Account;
 
 public class AccountMapper {
-    public static AccountsDto mapToAccountsDto(Accounts accounts, AccountsDto accountsDto) {
+    public static AccountDto mapToAccountsDto(Account accounts, AccountDto accountsDto) {
         accountsDto.setAccountNumber(accounts.getAccountNumber());
         accountsDto.setAccountType(accounts.getAccountType());
         accountsDto.setBranchAddress(accounts.getBranchAddress());
         return accountsDto;
     }
 
-    public static Accounts mapToAccounts(AccountsDto accountsDto, Accounts accounts) {
+    public static Account mapToAccounts(AccountDto accountsDto, Account accounts) {
         accounts.setAccountNumber(accountsDto.getAccountNumber());
         accounts.setAccountType(accountsDto.getAccountType());
         accounts.setBranchAddress(accountsDto.getBranchAddress());

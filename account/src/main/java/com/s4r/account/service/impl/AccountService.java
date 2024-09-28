@@ -1,9 +1,9 @@
 package com.s4r.account.service.impl;
 
 import com.s4r.account.constants.AccountConstants;
-import com.s4r.account.dto.AccountsDto;
+import com.s4r.account.dto.AccountDto;
 import com.s4r.account.dto.CustomerDto;
-import com.s4r.account.entity.Accounts;
+import com.s4r.account.entity.Account;
 import com.s4r.account.entity.Customer;
 import com.s4r.account.exception.CustomerAlreadyExistsException;
 import com.s4r.account.exception.ResourceNotFoundException;
@@ -48,8 +48,8 @@ public class AccountService implements IAccountService {
      * @param customer - Customer Object
      * @return the new account details
      */
-    private Accounts createNewAccount(Customer customer) {
-        Accounts newAccount = new Accounts();
+    private Account createNewAccount(Customer customer) {
+        Account newAccount = new Account();
         newAccount.setCustomerId(customer.getCustomerId());
         long randomAccNumber = 1000000000L + new Random().nextInt(900000000);
 
@@ -68,11 +68,11 @@ public class AccountService implements IAccountService {
         Customer customer = customerRepository.findByMobileNumber(mobileNumber).orElseThrow(
                 () -> new ResourceNotFoundException("Customer", "mobileNumber", mobileNumber)
         );
-        Accounts accounts = accountRepository.findByCustomerId(customer.getCustomerId()).orElseThrow(
+        Account accounts = accountRepository.findByCustomerId(customer.getCustomerId()).orElseThrow(
                 () -> new ResourceNotFoundException("Account", "customerId", customer.getCustomerId().toString())
         );
         CustomerDto customerDto = CustomerMapper.mapToCustomerDto(customer, new CustomerDto());
-        customerDto.setAccountsDto(AccountMapper.mapToAccountsDto(accounts, new AccountsDto()));
+        customerDto.setAccountsDto(AccountMapper.mapToAccountsDto(accounts, new AccountDto()));
         return customerDto;
     }
 
@@ -83,9 +83,9 @@ public class AccountService implements IAccountService {
     @Override
     public boolean updateAccount(CustomerDto customerDto) {
         boolean isUpdated = false;
-        AccountsDto accountsDto = customerDto.getAccountsDto();
+        AccountDto accountsDto = customerDto.getAccountsDto();
         if (accountsDto != null) {
-            Accounts accounts = accountRepository.findById(accountsDto.getAccountNumber()).orElseThrow(
+            Account accounts = accountRepository.findById(accountsDto.getAccountNumber()).orElseThrow(
                     () -> new ResourceNotFoundException("Account", "AccountNumber", accountsDto.getAccountNumber().toString())
             );
             AccountMapper.mapToAccounts(accountsDto, accounts);

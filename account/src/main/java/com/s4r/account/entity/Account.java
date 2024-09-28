@@ -5,7 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class Accounts extends BaseEntity {
+public class Account extends BaseEntity {
     @Column(name="customer_id")
     private Long customerId;
 
@@ -19,10 +19,10 @@ public class Accounts extends BaseEntity {
     @Column(name="branch_address")
     private String branchAddress;
 
-    public Accounts() {
+    public Account() {
     }
 
-    public Accounts(Long customerId, Long accountNumber, String accountType, String branchAddress) {
+    public Account(Long customerId, Long accountNumber, String accountType, String branchAddress) {
         this.customerId = customerId;
         this.accountNumber = accountNumber;
         this.accountType = accountType;

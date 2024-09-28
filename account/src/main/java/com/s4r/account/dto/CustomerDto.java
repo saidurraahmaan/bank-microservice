@@ -30,12 +30,12 @@ public class CustomerDto {
 //    @Schema(
 //            description = "Account details of the Customer"
 //    )
-    private AccountsDto accountsDto;
+    private AccountDto accountsDto;
 
     public CustomerDto() {
     }
 
-    public CustomerDto(String name, String email, String mobileNumber, AccountsDto accountsDto) {
+    public CustomerDto(String name, String email, String mobileNumber, AccountDto accountsDto) {
         this.name = name;
         this.email = email;
         this.mobileNumber = mobileNumber;
@@ -66,11 +66,11 @@ public class CustomerDto {
         this.mobileNumber = mobileNumber;
     }
 
-    public AccountsDto getAccountsDto() {
+    public AccountDto getAccountsDto() {
         return accountsDto;
     }
 
-    public void setAccountsDto(AccountsDto accountsDto) {
+    public void setAccountsDto(AccountDto accountsDto) {
         this.accountsDto = accountsDto;
     }
 
