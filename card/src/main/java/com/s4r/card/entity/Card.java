@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 
 
 @Entity
-public class Card {
+public class Card extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cardId;
