@@ -3,7 +3,7 @@ package com.s4r.account.entity;
 import jakarta.persistence.*;
 
 @Entity
-public class Customer {
+public class Customer extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="customer_id")
